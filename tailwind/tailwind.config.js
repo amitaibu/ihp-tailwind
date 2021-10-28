@@ -8,7 +8,7 @@ module.exports = {
     },
     purge: {
         content: [
-            "./Web/View/**/*.hs",
+            "../Web/View/**/*.hs",
         ],
     options: {
         safelist: [
