@@ -24,4 +24,4 @@ JS_FILES += ${IHP}/static/vendor/turbolinksMorphdom.js
 include ${IHP}/Makefile.dist
 
 tailwind-dev:
-	npx postcss tailwind/app.pcss --output=static/app.css --watch
+	cd tailwind && npx postcss ./app.pcss --output=../static/app.css --watch --verbose
