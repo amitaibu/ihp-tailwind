@@ -1,0 +1,23 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+// Add you CSS or import other post-css files.
+@layer components {
+    .btn {
+        @apply px-4 py-2 bg-blue-600 text-white rounded;
+    }
+}
+
+// You can also nest CSS like in SCSS
+/*
+.foo {
+
+    .bar {
+        @apply text-white;
+    }
+
+}
+*/
+
+// Must be the last import.
+@import "tailwindcss/utilities";
