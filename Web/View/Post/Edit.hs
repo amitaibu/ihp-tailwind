@@ -17,6 +17,6 @@ instance View EditView where
 
 renderForm :: Post -> Html
 renderForm post = formFor post [hsx|
-    {(textField #title)}
+    {(textField #title) { helpText = "Max. 140 characters"}}
     {submitButton}
 |]

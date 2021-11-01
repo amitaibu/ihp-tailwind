@@ -1,4 +1,4 @@
-module Web.View.CustomCSSFramework (customCSSFramework) where
+module Web.View.CustomCSSFramework (customTailwind) where
 
 import IHP.Prelude
 import IHP.FlashMessages.Types
@@ -15,6 +15,7 @@ import IHP.ModelSupport
 import IHP.Pagination.Helpers
 import IHP.Pagination.Types
 import IHP.View.Types (PaginationView(linkPrevious, pagination))
+import IHP.View.CSSFramework
 
 customTailwind :: CSSFramework
 customTailwind = def
@@ -36,15 +37,15 @@ customTailwind = def
         styledFlashMessage _ (SuccessFlashMessage message) = [hsx|<div class="bg-green-100 border border-green-500 text-green-900 px-4 py-3 rounded relative">{message}</div>|]
         styledFlashMessage _ (ErrorFlashMessage message) = [hsx|<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">{message}</div>|]
 
-        styledInputClass FormField {} = "form-control"
+        styledInputClass FormField {} = "mt-2 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
         styledInputInvalidClass _ = "is-invalid"
 
-        styledSubmitButtonClass = "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        styledSubmitButtonClass = "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
 
         styledFormFieldHelp _ FormField { helpText = "" } = mempty
-        styledFormFieldHelp _ FormField { helpText } = [hsx|<p class="text-gray-600 text-xs italic">{helpText}</p>|]
+        styledFormFieldHelp _ FormField { helpText } = [hsx|<p class="text-gray-600 text-xs mt-2">{helpText}</p>|]
 
-        styledFormGroupClass = "flex flex-wrap -mx-3 mb-6"
+        styledFormGroupClass = "flex flex-col my-4"
 
         styledValidationResultClass = "text-red-500 text-xs italic"
 
