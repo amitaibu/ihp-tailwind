@@ -21,7 +21,7 @@ defaultLayout inner = H.docTypeHtml ! A.lang "en" $ [hsx|
     <title>{pageTitleOrDefault "App"}</title>
 </head>
 <body>
-    <div class="container mt-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {renderFlashMessages}
         {inner}
     </div>
@@ -34,18 +34,18 @@ defaultLayout inner = H.docTypeHtml ! A.lang "en" $ [hsx|
 
 stylesheets :: Html
 stylesheets = [hsx|
-        <link rel="stylesheet" href={assetPath "/vendor/bootstrap.min.css"}/>
+        <!--  -->
         <link rel="stylesheet" href={assetPath "/vendor/flatpickr.min.css"}/>
         <link rel="stylesheet" href={assetPath "/app.css"}/>
     |]
+    -- @todo: Conditionally load only if Bootstrap css is chosen?
+    -- <link rel="stylesheet" href={assetPath "/vendor/bootstrap.min.css"}/>
 
 scripts :: Html
 scripts = [hsx|
         {when isDevelopment devScripts}
         <script src={assetPath "/vendor/jquery-3.6.0.slim.min.js"}></script>
         <script src={assetPath "/vendor/timeago.js"}></script>
-        <script src={assetPath "/vendor/popper.min.js"}></script>
-        <script src={assetPath "/vendor/bootstrap.min.js"}></script>
         <script src={assetPath "/vendor/flatpickr.js"}></script>
         <script src={assetPath "/vendor/morphdom-umd.min.js"}></script>
         <script src={assetPath "/vendor/turbolinks.js"}></script>
@@ -55,6 +55,10 @@ scripts = [hsx|
         <script src={assetPath "/ihp-auto-refresh.js"}></script>
         <script src={assetPath "/app.js"}></script>
     |]
+    -- @todo: Conditionally load only if Bootstrap css is chosen?
+    -- <script src={assetPath "/vendor/popper.min.js"}></script>
+    -- <script src={assetPath "/vendor/bootstrap.min.js"}></script>
+
 
 devScripts :: Html
 devScripts = [hsx|
